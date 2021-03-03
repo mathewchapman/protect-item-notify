@@ -15,6 +15,7 @@ import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
+import net.runelite.api.Varbits;
 
 @Slf4j
 @PluginDescriptor(
@@ -50,6 +51,10 @@ public class ProtectItemNotifyPlugin extends Plugin
 	@Provides
 	ProtectItemNotifyConfig provideConfig(ConfigManager configManager) {
 		return configManager.getConfig(ProtectItemNotifyConfig.class);
+	}
+
+	public boolean isInPVP() {
+		return client.getVar(Varbits.PVP_SPEC_ORB) == 1;
 	}
 
 	public boolean isProtectItemOn() {

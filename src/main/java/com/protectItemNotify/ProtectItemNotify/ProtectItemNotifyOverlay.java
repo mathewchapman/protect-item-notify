@@ -42,6 +42,10 @@ public class ProtectItemNotifyOverlay extends Overlay {
 
     @Override
     public Dimension render(Graphics2D graphics) {
+        if (!plugin.isInPVP() && protectItemConfig.pvponly() == true) {
+            return null;
+        }
+
         if (!plugin.isProtectItemOn()) {
             return null;
         }
