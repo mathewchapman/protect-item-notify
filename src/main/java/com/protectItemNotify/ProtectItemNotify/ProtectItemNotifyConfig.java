@@ -8,11 +8,17 @@ import net.runelite.client.config.ConfigItem;
 public interface ProtectItemNotifyConfig extends Config
 {
 	@ConfigItem(
+			keyName = "hpthreshold",
+			name = "Hp Threshold",
+			description = "If your current health falls below this value you will be notified. Set to 0 to disable."
+	)
+	default int hpthreshold() {return 0;}
+	@ConfigItem(
 			keyName = "scale",
-			name = "Scale",
+			name = "Scale %",
 			description = "The scale of the ring of protect item image.")
 	default int scale() {
-		return 1;
+		return 100;
 	}
 
 	@ConfigItem(
