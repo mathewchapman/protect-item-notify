@@ -46,6 +46,10 @@ public class ProtectItemNotifyOverlay extends Overlay {
             return null;
         }
 
+        if (plugin.getHealth() >= protectItemConfig.hpthreshold() || protectItemConfig.hpthreshold() == 0) {
+            return null;
+        }
+
         if (!plugin.isProtectItemOn()) {
             return null;
         }
