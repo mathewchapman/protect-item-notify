@@ -1,11 +1,12 @@
 package com.protectItemNotify.ProtectItemNotify;
 
 import com.google.inject.Provides;
-import com.protectItemNotify.ProtectItemNotify.ProtectItemNotifyOverlay;
-import java.util.Optional;
 import javax.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
-import net.runelite.api.*;
+import net.runelite.api.Client;
+import net.runelite.api.Prayer;
+import net.runelite.api.Varbits;
+import net.runelite.api.Skill;
 import net.runelite.api.events.GameTick;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
