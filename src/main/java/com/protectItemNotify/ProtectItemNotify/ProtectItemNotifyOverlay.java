@@ -67,9 +67,9 @@ public class ProtectItemNotifyOverlay extends Overlay {
         int h = protectItemImage.getHeight();
         BufferedImage scaledProtectItemImage =
                 new BufferedImage(
-                        protectItemConfig.scale() * w, protectItemConfig.scale() * h, BufferedImage.TYPE_INT_ARGB);
+                        Math.round(protectItemConfig.scale()/100.0f * w), Math.round(protectItemConfig.scale()/100.0f * h), BufferedImage.TYPE_INT_ARGB);
         AffineTransform at = new AffineTransform();
-        at.scale(protectItemConfig.scale(), protectItemConfig.scale());
+        at.scale(protectItemConfig.scale()/100.0f, protectItemConfig.scale()/100.0f);
         AffineTransformOp scaleOp = new AffineTransformOp(at, AffineTransformOp.TYPE_BILINEAR);
         scaledProtectItemImage = scaleOp.filter(protectItemImage, scaledProtectItemImage);
         previouslyScaledImage.scaledBufferedImage = scaledProtectItemImage;

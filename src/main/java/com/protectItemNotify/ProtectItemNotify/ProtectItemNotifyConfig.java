@@ -15,10 +15,10 @@ public interface ProtectItemNotifyConfig extends Config
 	default int hpthreshold() {return 0;}
 	@ConfigItem(
 			keyName = "scale",
-			name = "Scale",
+			name = "Scale %",
 			description = "The scale of the ring of protect item image.")
 	default int scale() {
-		return 1;
+		return 100;
 	}
 
 	@ConfigItem(
