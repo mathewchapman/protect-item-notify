@@ -37,17 +37,21 @@ public class ProtectItemNotifyOverlay extends Overlay {
     }
 
     private static void loadProtectItemImage() {
-        protectItemImage = ImageUtil.getResourceStreamFromClass(ProtectItemNotifyPlugin.class, "/protect-item.png");
+        protectItemImage = ImageUtil.loadImageResource(ProtectItemNotifyPlugin.class, "/protect-item.png");
     }
 
     @Override
     public Dimension render(Graphics2D graphics) {
-        if (!plugin.isInPVP() && protectItemConfig.pvponly() == true) {
+        if (!plugin.isInPVP() && protectItemConfig.pvponly()) {
             return null;
         }
 
         if (!plugin.isProtectItemOn()) {
             return null;
+        }
+
+        if (plugin.isAtLMS() && protectItemConfig.disableInLms()) {
+        	return null;
         }
 
         BufferedImage scaledProtectItemImage = scaleImage(protectItemImage);

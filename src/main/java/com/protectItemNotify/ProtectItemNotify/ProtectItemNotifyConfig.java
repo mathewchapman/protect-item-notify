@@ -23,4 +23,13 @@ public interface ProtectItemNotifyConfig extends Config
 		return false;
 	}
 
+	@ConfigItem(
+		keyName = "disableInLms",
+		name = "Disable in LMS",
+		description = "Disables visibility whilst in LMS matches."
+	)
+	default boolean disableInLms()
+	{
+		return false;
+	}
 }
